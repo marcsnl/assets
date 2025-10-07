@@ -71,6 +71,13 @@ nav {
   align-items: center;
 }
 
+.navigation-bar a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.75;
+}
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -218,3 +225,4 @@ nav {
   }
   
 }
+
