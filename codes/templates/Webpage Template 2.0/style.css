@@ -71,16 +71,16 @@ nav {
   align-items: center;
 }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
+.navigation-bar a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.75;
 }
 
-.nav-links li {
-  list-style: none;
-  margin: 0 8px;
-  padding-right: 10px;
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
+.navigation-bar a:hover,
+.navigation-bar a.active-nav {
+  opacity: 1;
 }
 
 .title-page-area{
@@ -113,6 +113,30 @@ nav {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--secondary-color);
+}
+
+/* -------- Navigation Bar Links -------- */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  list-style: none;
+  margin: 0 8px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-links li:last-child {
+  border-right: none;
+}
+
+.nav-links-menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: var(--white);
+  cursor: pointer;
 }
 
 /* -------- Appearance Area Style -------- */
@@ -167,19 +191,20 @@ nav {
   margin-top: 70px;
   padding: 0 60px;
   background: var(--ui-bg);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: left;
   margin-bottom: 40px;
 }
 
-.color-text {
-  color: var(--primary-color);
+.page-content.active-section {
+  display: flex;
 }
 
-.page-content-title{
-  margin-top: 30px;
+.color-text {
+  color: var(--primary-color);
 }
 
 .page-content p {
@@ -208,8 +233,46 @@ nav {
   display: none;
 }
 
+/* -------- Responsive Media -------- */
+@media (max-width: 1100px) {
+  .page-content {
+    padding: 0 30px;
+  }
+
+  .page-content p {
+    width: 90%;
+  }
+}
+
 /* ------- Mobile Device ------- */
 @media (max-width: 768px) {
+  .nav-links-menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: calc(70px + 10px); /* navigation-bar height + gap */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    display: none; /* hidden by default */
+    width: auto;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    border: none;
+    margin: 10px 0;
+  }
 
   .appearance-area {
     display: flex;
