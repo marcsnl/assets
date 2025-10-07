@@ -71,11 +71,16 @@ nav {
   align-items: center;
 }
 
-.navigation-bar a {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 18px;
-  opacity: 0.75;
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  list-style: none;
+  margin: 0 8px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .title-page-area{
@@ -165,7 +170,6 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: left;
   margin-bottom: 40px;
 }
