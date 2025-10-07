@@ -3,8 +3,6 @@
 const darkToggle = document.querySelector(".dark-mode-btn i");
 const colorText = document.querySelectorAll(".color-text");
 const boxElements = document.querySelectorAll(".box");
-const lightImages = document.querySelectorAll('.light-img');
-const darkImages = document.querySelectorAll('.dark-img');
 const root = document.querySelector(":root");
 
 // Default colors for light mode (CSS variables)
@@ -43,10 +41,6 @@ darkToggle.addEventListener("click", () => {
     toggleDarkMode(true);
     applyThemeColors(colorData); // Apply the color theme when dark mode is activated
     darkToggle.parentElement.title = "Light Mode";
-
-    // Show dark images, hide light images
-    lightImages.forEach(img => img.classList.add('hidden'));
-    darkImages.forEach(img => img.classList.remove('hidden'));
     
   } else {
     // Switch to light mode
@@ -55,9 +49,6 @@ darkToggle.addEventListener("click", () => {
     applyThemeColors(defaultLightModeColors); // Apply the default light mode colors
     darkToggle.parentElement.title = "Dark Mode";
 
-    // Show light images, hide dark images
-    lightImages.forEach(img => img.classList.remove('hidden'));
-    darkImages.forEach(img => img.classList.add('hidden'));
   }
 });
 
@@ -96,4 +87,3 @@ document.addEventListener('click', (e) => {
     navLinksContainer.classList.remove('show');
   }
 });
-
